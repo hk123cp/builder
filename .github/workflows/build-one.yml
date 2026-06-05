@@ -130,6 +130,11 @@ jobs:
             exit 1
           fi
 
+- name: Upload firmware to Artifacts
+  uses: actions/upload-artifact@v3
+  with:
+    name: ${{ inputs.platform }}
+    path: output/*.bin
       - name: Upload firmware
         if: env.NORFW || env.NANDFW
         uses: softprops/action-gh-release@v2
