@@ -144,3 +144,10 @@ jobs:
           files: |
             ${{env.NORFW}}
             ${{env.NANDFW}}
+            - name: Upload firmware to Actions Artifacts
+  uses: actions/upload-artifact@v3
+  with:
+    name: OpenIPC-FPV-${{ github.run_id }}
+    path: |
+      ${{ env.NORFW }}
+      ${{ env.NANDFW }}
